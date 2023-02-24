@@ -1,0 +1,71 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  J1:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J2:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J4:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J5:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J6:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J7:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J8:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+  J9:
+    has_velocity_limits: false
+    max_velocity: 0
+    has_acceleration_limits: false
+    max_acceleration: 0
+
+f_gantry_robot:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - J1
+      - J2
+      - J4
+      - J5
+      - J6
+      - J7
+      - J8
+      - J9
+  gazebo_ros_control:
+    pid_gains:
+      J1: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J2: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      # J3: {p: 100, d: 1, i: 1, i_clamp: 1}
+      J4: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J5: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J6: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J7: {p: 10, d: 0.001, i: 2, i_clamp: 1}
+      J8: {p: 10, d: 0.001, i: 2, i_clamp: 1}
+      J9: {p: 10, d: 0.001, i: 2, i_clamp: 1}

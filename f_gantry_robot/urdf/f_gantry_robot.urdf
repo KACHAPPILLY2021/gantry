@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="f_gantry_robot">
+
+  <link name="dummy_link">
+  </link>
+  <joint name="dummy_joint" type="fixed">
+  <parent link="dummy_link" />
+  <child link="L0" />
+  </joint>
+
+  <link
+    name="L0">
+    <inertial>
+      <origin
+        xyz="1.10714285904415 0.749998569618219 0.350440549636899"
+        rpy="0 0 0" />
+      <mass
+        value="45.7090884938413" />
+      <inertia
+        ixx="26.2933073109288"
+        ixy="-1.22171726068075E-08"
+        ixz="-9.64466009582674E-10"
+        iyy="49.4179293885173"
+        iyz="3.22610356515301E-09"
+        izz="71.8303400673022" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L0.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L0.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link
+    name="L1">
+    <inertial>
+      <origin
+        xyz="-0.785714281544138 0.00464236562733333 -0.0714285714285771"
+        rpy="0 0 0" />
+      <mass
+        value="5.40609923187187" />
+      <inertia
+        ixx="0.0172106463607029"
+        ixy="-2.92290980463068E-12"
+        ixz="4.31293956137086E-17"
+        iyy="3.26278765690857"
+        iyz="-3.6056677368165E-18"
+        izz="3.26259194444328" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="J1"
+    type="prismatic">
+    <origin
+      xyz="0.035714 -0.57143 -0.035714"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="L0" />
+    <child
+      link="L1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2"
+      upper="0"
+      effort="90"
+      velocity="0.1" />
+  </joint>
+
+  <transmission name="Joint_1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L2">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-16 -0.000295354865567976 -0.040001123995086"
+        rpy="0 0 0" />
+      <mass
+        value="0.434899584888463" />
+      <inertia
+        ixx="0.000416959438846053"
+        ixy="2.52017255905925E-19"
+        ixz="-1.46824558728147E-20"
+        iyy="0.000463089836628531"
+        iyz="8.63983052819577E-20"
+        izz="0.000425389259754008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="prismatic">
+    <origin
+      xyz="-0.071427 0 -0.071429"
+      rpy="0 1.5708 0" />
+    <parent
+      link="L1" />
+    <child
+      link="L2" />
+    <axis
+      xyz="0 2.6946E-05 -1" />
+    <limit
+      lower="0"
+      upper="1.3486"
+      effort="20"
+      velocity="0.1" />
+  </joint>
+
+  <transmission name="Joint_2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L3">
+    <inertial>
+      <origin
+        xyz="-8.79478468028549E-06 0.0736471747897318 -1.88876692064355E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.325325262072372" />
+      <inertia
+        ixx="0.000779107599593089"
+        ixy="-1.74981056722359E-07"
+        ixz="3.71433853743346E-22"
+        iyy="0.000117049903997481"
+        iyz="3.37111552918147E-19"
+        izz="0.00077918886554173" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="J3"
+    type="fixed">
+    <origin
+      xyz="0 -0.029712 -0.040001"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="L2" />
+    <child
+      link="L3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="L4">
+    <inertial>
+      <origin
+        xyz="0.0149979767799962 0.0274694096422748 -2.10815332551961E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.158592600561539" />
+      <inertia
+        ixx="5.21692004565407E-05"
+        ixy="3.49364309120793E-06"
+        ixz="8.2568799672585E-11"
+        iyy="0.000114681862985054"
+        iyz="-1.15832100350628E-10"
+        izz="0.000109591783908965" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="J4"
+    type="revolute">
+    <origin
+      xyz="0 0.146 0"
+      rpy="-3.1416 -1.5687 3.1416" />
+    <parent
+      link="L3" />
+    <child
+      link="L4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="1" />
+  </joint>
+
+  <transmission name="Joint_4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M4">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L5">
+    <inertial>
+      <origin
+        xyz="1.65548130759419E-13 -0.0178430116520465 -0.0330210650613293"
+        rpy="0 0 0" />
+      <mass
+        value="0.229643508251062" />
+      <inertia
+        ixx="0.000589562582560473"
+        ixy="-2.68345662518328E-20"
+        ixz="5.17325372535564E-19"
+        iyy="0.000667491249164921"
+        iyz="2.76727992986223E-07"
+        izz="0.00010488966479855" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L5.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="J5"
+    type="revolute">
+    <origin
+      xyz="0.029 0.026 0"
+      rpy="0 -1.547 1.5708" />
+    <parent
+      link="L4" />
+    <child
+      link="L5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="1" />
+  </joint>
+
+  <transmission name="Joint_5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M5">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L6">
+    <inertial>
+      <origin
+        xyz="4.88498130835069E-15 -0.0146356446057586 -0.0353152453376644"
+        rpy="0 0 0" />
+      <mass
+        value="0.165415455625704" />
+      <inertia
+        ixx="0.000320673122950523"
+        ixy="3.09696421339854E-21"
+        ixz="4.65868120989865E-20"
+        iyy="0.000321812073133408"
+        iyz="-1.67334478420098E-05"
+        izz="3.84249953599312E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L6.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="J6"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.10255"
+      rpy="0 0.01102 -3.1416" />
+    <parent
+      link="L5" />
+    <child
+      link="L6" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="20"
+      velocity="1" />
+  </joint>
+
+  <transmission name="Joint_6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M6">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L7">
+    <inertial>
+      <origin
+        xyz="-4.8017145815038E-15 -0.00844472740586596 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00578055719994573" />
+      <inertia
+        ixx="3.70196834286497E-07"
+        ixy="-9.55393607498747E-23"
+        ixz="-9.23878193682978E-19"
+        iyy="6.56573634085627E-07"
+        iyz="1.11960188378759E-24"
+        izz="6.09329174700272E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L7.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="J7"
+    type="revolute">
+    <origin
+      xyz="0 -0.0175 -0.1275"
+      rpy="1.5708 0 3.1399" />
+    <parent
+      link="L6" />
+    <child
+      link="L7" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+
+  <transmission name="Joint_7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J7">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M7">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <link
+    name="L8">
+    <inertial>
+      <origin
+        xyz="-2.08490431308217E-08 -0.000283519514683597 -6.36626912298155E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.00113453443914184" />
+      <inertia
+        ixx="3.61708115632829E-08"
+        ixy="2.16375662839659E-13"
+        ixz="1.93788779678884E-13"
+        iyy="3.70021700782141E-08"
+        iyz="1.08352825470538E-13"
+        izz="1.31028052716023E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L8.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint
+    name="J8"
+    type="revolute">
+    <origin
+      xyz="0 -0.014997 0"
+      rpy="1.5708 1.5674 -1.5708" />
+    <parent
+      link="L7" />
+    <child
+      link="L8" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+
+  <link
+    name="L9">
+    <inertial>
+      <origin
+        xyz="4.41036096532343E-14 0.0221809868594412 -1.22957199977236E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.00573826347435232" />
+      <inertia
+        ixx="6.15476978991467E-07"
+        ixy="-2.21364285267153E-19"
+        ixz="1.99856965724141E-20"
+        iyy="1.55470966727402E-06"
+        iyz="-9.96669920065143E-21"
+        izz="1.77536322879452E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://f_gantry_robot/meshes/L9.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <transmission name="Joint_8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J8">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M8">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <joint
+    name="J9"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 -1.5705 0" />
+    <parent
+      link="L8" />
+    <child
+      link="L9" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="10"
+      velocity="1" />
+  </joint>
+
+  <transmission name="Joint_9">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J9">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="M9">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+</robot>

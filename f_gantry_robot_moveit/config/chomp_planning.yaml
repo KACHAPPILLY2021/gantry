@@ -1,0 +1,45 @@
+planning_time_limit: 10.0
+max_iterations: 200
+max_iterations_after_collision_free: 5
+smoothness_cost_weight: 0.1
+obstacle_cost_weight: 1.0
+learning_rate: 0.01
+smoothness_cost_velocity: 0.0
+smoothness_cost_acceleration: 1.0
+smoothness_cost_jerk: 0.0
+ridge_factor: 0.01
+use_pseudo_inverse: false
+pseudo_inverse_ridge_factor: 1e-4
+joint_update_limit: 0.1
+collision_clearence: 0.2
+collision_threshold: 0.07
+use_stochastic_descent: true
+enable_failure_recovery: true
+max_recovery_attempts: 5
+
+f_gantry_robot:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - J1
+      - J2
+      - J4
+      - J5
+      - J6
+      - J7
+      - J8
+      - J9
+  gazebo_ros_control:
+    pid_gains:
+      J1: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J2: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      # J3: {p: 100, d: 1, i: 1, i_clamp: 1}
+      J4: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J5: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J6: {p: 100, d: 0.001, i: 2, i_clamp: 1}
+      J7: {p: 10, d: 0.001, i: 2, i_clamp: 1}
+      J8: {p: 10, d: 0.001, i: 2, i_clamp: 1}
+      J9: {p: 10, d: 0.001, i: 2, i_clamp: 1}

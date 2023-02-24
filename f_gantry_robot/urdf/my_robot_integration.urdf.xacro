@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Name your robot here -->
+<robot name ="my_f_gantry_robot" xmlns:xacro="http://wiki.ros.org/xacro">
+
+<!-- Include your urdf files here -->
+	<!-- Include Robot's urdf filepath -->
+	<xacro:include filename="$(find f_gantry_robot)/urdf/f_gantry_robot.urdf"/>
+
+<!--  Gazebo plugin for control here is already added for you -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/f_gantry_robot</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<legacyModeNS>true</legacyModeNS>
+		</plugin>
+
+	</gazebo>
+
+	<!-- <gazebo reference="L0">
+		<material><Gazebo/DarkGrey></material>
+	</gazebo>
+	<gazebo reference="L1">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L2">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L3">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L4">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L5">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L6">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L7">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L8">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo>
+	<gazebo reference="L9">
+		<material>Gazebo/DarkGrey</material>
+	</gazebo> -->
+
+</robot>	
+
+

@@ -1,0 +1,59 @@
+f_gantry_robot: 
+  # default controller
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  J1_controller: 
+    type: effort_controllers/JointPositionController 
+    joint: J1
+    pid : {p: 50, d: 30, i: 0.001}
+
+  J2_controller: 
+    type: effort_controllers/JointPositionController 
+    joint: J2
+    pid : {p: 50, d: 30, i: 0.001}
+
+  J4_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J4
+    pid : {p: 100, d: 0.01, i: 0.001}
+
+  J5_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J5
+    pid : {p: 100, d: 0.01, i: 0.001}
+
+  J6_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J6
+    pid : {p: 100, d: 0.01, i: 0.001}
+
+  J7_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J7
+    pid : {p: 1, d: 0, i: 0}
+
+  J8_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J8
+    pid : {p: 1, d: 0, i: 0}
+
+  J9_controller: 
+    type: velocity_controllers/JointPositionController 
+    joint: J9
+    pid : {p: 1, d: 0, i: 0}
+
+  gazebo_ros_control:   
+    pid_gains:
+      J1: {p: 50, d: 30, i: 0.001}
+      J2: {p: 50, d: 30, i: 0.001}
+      J4: {p: 100, d: 0.01, i: 0.001}
+      J5: {p: 100, d: 0.01, i: 0.001}
+      J6: {p: 100, d: 0.01, i: 0.001}
+      J7: {p: 1, d: 0, i: 0}
+      J8: {p: 1, d: 0, i: 0}
+      J9: {p: 1, d: 0, i: 0}
+
+
+ 

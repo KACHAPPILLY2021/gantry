@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: f_gantry_robot
+    relative_path: urdf/my_robot_integration.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/my_f_gantry_robot.srdf
+  CONFIG:
+    author_name: pradip
+    author_email: pradip@umd.edu
+    generated_timestamp: 1638839914
